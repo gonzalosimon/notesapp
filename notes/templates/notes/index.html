@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<ul class="typewriter">
+    {% for note in notes %}
+    <li><a href="{% url 'note_detail' note.id %}">{{ note.title }}</a></li>
+    {% endfor %}
+</ul>
+
+<footer>
+  <button onclick="location.href='create/'">Create a note</button>
+  <button onclick="location.href='/about'">About</button>
+
+</footer>
+
+{% endblock %}

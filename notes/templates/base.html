@@ -1,0 +1,172 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note App</title>
+    <style>
+      body,
+      button,
+      input,
+      textarea {
+        font-family: "Lucida Sans Typewriter", monospace;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      @font-face {
+        font-family: "Lucida Sans Typewriter";
+        src: url('{% static "fonts/LucidaSansTypewriter.ttf" %}')
+          format("truetype");
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0c0c0c;
+        background-image: url("https://raw.githubusercontent.com/Lukasedv/themes/master/background.png");
+        background-size: cover;
+        color: #26e476;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: rgba(12, 12, 12, 0.8);
+        border-radius: 8px;
+        font-size: 14px;
+      }
+
+      h1,
+      h2 {
+        color: #26e476;
+      }
+
+      button {
+        color: #0c0c0c;
+        background-color: #26e476;
+        border: none;
+        padding: 10px 15px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 3px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bolder;
+        text-transform: uppercase;
+      }
+
+      button:hover {
+        background-color: #0ec402;
+      }
+
+      ul.typewriter {
+        padding: 0;
+        list-style: none;
+      }
+
+      ul.typewriter li {
+        margin-bottom: 20px;
+        font-size: 1.2em;
+      }
+
+      ul.typewriter li a {
+        color: #26e476;
+        transition: color 0.3s ease, text-decoration 0.3s ease;
+        text-decoration: none !important;
+      }
+
+      ul.typewriter li a:hover {
+        color: #168444;
+        background-color: #26e476;
+        padding: 25px !important;
+        text-decoration: none !important;
+      }
+
+      .typewriter li {
+        overflow: hidden;
+        border-right: 0.15em solid #26e476;
+        white-space: nowrap;
+        margin: 6px auto;
+        letter-spacing: 0.15em;
+        animation: typing 1.7s steps(40, end), blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #26e476;
+        }
+      }
+
+      .footer-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .footer-buttons button {
+        background-color: #26e476;
+        color: #0c0c0c;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        margin: 0 4px;
+        box-sizing: border-box;
+      }
+
+      .footer-buttons button:hover {
+        background-color: #0ec402;
+      }
+
+      .footer-buttons form button:hover {
+        background-color: #fb3f1d;
+      }
+
+      .footer-buttons form button {
+        background-color: #ff6347;
+      }
+
+      form > * {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      h1 {
+        font-size: x-large;
+      }
+
+      h2 {
+        font-size: large;
+        padding-bottom: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to G.S. Corporation (TM) termlink</h1>
+      <h2>Terminal Notes App</h2>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

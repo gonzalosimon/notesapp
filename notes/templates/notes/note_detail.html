@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<div id="noteContent" style="white-space: pre-wrap"></div>
+
+<div class="footer-buttons">
+  <div class="footer-buttons">
+    <button onclick="window.location.href='/'">Back to List</button>
+    <button onclick="window.location.href='{% url 'edit_note' note.id %}'">
+      Edit
+    </button>
+    <form action="{% url 'note_delete' note.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const text = "{{ note.content|escapejs }}";
+  const speed = 10;
+
+  function typeWriter(elementId, text, i = 0) {
+    if (i < text.length) {
+      document.getElementById(elementId).innerHTML += text.charAt(i);
+      i++;
+      setTimeout(() => typeWriter(elementId, text, i), speed);
+    }
+  }
+
+  window.onload = () => {
+    typeWriter("noteContent", text);
+  };
+</script>
+{% endblock %}
